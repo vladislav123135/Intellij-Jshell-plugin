@@ -1,0 +1,61 @@
+// Import-Anweisungen
+import java.util.*;
+
+// Variable Deklarationen
+int a = 10;
+
+// Ausdrücke
+a * 2
+
+// Typdeklarationen: Klasse
+class MyClass {
+    void myMethod() {
+        System.out.println("Method in MyClass");
+    }
+}
+
+// Typdeklarationen: Interface
+interface Printable {
+    void print();
+}
+
+// Typdeklarationen: Enum
+enum Color {
+    RED, GREEN, BLUE;
+}
+
+// Typdeklarationen: Annotation
+@interface MyAnnotation {
+    String value();
+}
+
+// Methodendeklarationen
+void printSomething(String message) {
+    System.out.println(message);
+}
+
+// Ausführen einer Methode
+printSomething("Hello, world!");
+
+// Ausführen einer Anweisung
+System.out.println("This is a statement.");
+
+// Erstellen und Verwenden einer Klasse
+MyClass myClass = new MyClass();
+myClass.myMethod();
+
+// Erstellen und Verwenden eines Interfaces
+Printable printer = new Printable() {
+    public void print() {
+        System.out.println("Printing from an anonymous class.");
+    }
+};
+printer.print();
+
+// Verwenden eines Enums
+System.out.println("Favorite color: " + Color.BLUE);
+
+// Verwenden einer Annotation
+@MyAnnotation(value = "Example")
+class AnnotatedClass {}
+
