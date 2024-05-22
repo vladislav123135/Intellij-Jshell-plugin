@@ -1,0 +1,54 @@
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+<idea-plugin>
+    <!-- Unique identifier of the plugin. It should be FQN. It cannot be changed between the plugin versions. -->
+    <id>com.example.demo2</id>
+
+    <!-- Public plugin name should be written in Title Case.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-name -->
+    <name>Demo2</name>
+
+    <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
+    <vendor email="support@yourcompany.com" url="https://www.yourcompany.com">YourCompany</vendor>
+
+    <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
+         Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
+    <description><![CDATA[
+    Enter short description for your plugin here.<br>
+    <em>most HTML tags may be used</em>
+  ]]></description>
+
+    <!-- Product and plugin compatibility requirements.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
+    <depends>com.intellij.modules.platform</depends>
+
+    <!-- Extension points defined by the plugin.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
+
+    <extensions defaultExtensionNs="com.intellij">
+        <fileType
+                name="JShell File"
+                implementationClass="com.example.demo2.fileType.JShellFileType"
+                fieldName="INSTANCE"
+                language="JShell"
+                extensions="jsh" />
+    </extensions>
+    <actions>
+        <group id="MyPluginGroup" text="JShell Actions" description="JShell actions">
+            <action id="CreateJShellFile" class="com.example.demo2.actions.CreateJShellFileAction"
+                    text="New .jsh File"
+                    description="Creates a new JShell script file">
+                <add-to-group group-id="FileMenu" anchor="first" />
+            </action>
+        </group>
+    </actions>
+
+    <actions>
+        <action id="JShellRunAction" class="com.example.demo2.actions.JShellRunAction" text="Run JShell Script">
+            <add-to-group group-id="EditorPopupMenu" anchor="last"/>
+            <add-to-group group-id="RunMenu" anchor="first"/>
+        </action>
+    </actions>
+
+
+</idea-plugin>
